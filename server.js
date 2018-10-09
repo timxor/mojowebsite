@@ -4,35 +4,28 @@ var http = require("http"),
     fs = require("fs"),
     port = process.env.PORT || 8888;
 
-http.createServer(function(request, response) {
 
-  var uri = url.parse(request.url).pathname
-    , filename = path.join(process.cwd(), uri);
 
-  fs.exists(filename, function(exists) {
-    if(!exists) {
-      response.writeHead(404, {"Content-Type": "text/plain"});
-      response.write("404 Not Found\n");
-      response.end();
-      return;
-    }
+var express = require('express');
+var serveIndex = require('serve-index');
+var open = require('open');
+var app = express();
+var fs = require('fs');
+var path = require('path');
+const bodyParser = require('body-parser');
+const request = require('request');
+const cheerio = require('cheerio');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+var date = new Date();
+var current_hour = date.getHours();
+app.use(serveIndex('/_site'));
+app.use(express.static('_site'));
 
-// 
-    if (fs.statSync(filename).isDirectory()) filename += '/index.html';
 
-    fs.readFile(filename, "binary", function(err, file) {
-      if(err) {        
-        response.writeHead(500, {"Content-Type": "text/plain"});
-        response.write(err + "\n");
-        response.end();
-        return;
-      }
-
-      response.writeHead(200);
-      response.write(file, "binary");
-      response.end();
-    });
-  });
-}).listen(parseInt(port, 10));
-
-console.log("Static file server running at\n  => http://localhost:" + port + "/\nCTRL + C to shutdown");
+const server = app.listen(process.env.PORT || 5000, () => {
+  console.log("date = ", date);
+  console.log("current_hour = ", current_hour);
+  console.log('Express server listening on port %d in %s mode', server.address().port, app.settings.env);
+  open('http://127.0.0.1:5000');
+});
