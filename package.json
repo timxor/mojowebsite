@@ -1,0 +1,23 @@
+{
+  "name": "mojowebsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "myscripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tcsiwula/mojowebsite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tcsiwula/mojowebsite/issues"
+  },
+  "homepage": "https://github.com/tcsiwula/mojowebsite#readme",
+  "dependencies": {
+    "harp": "^0.29.0",
+    "http-server": "^0.11.1"
+  }
+}
