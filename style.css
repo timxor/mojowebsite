@@ -62,7 +62,7 @@ p {
     left: 0;
     z-index: -1;
     
-    background: url('image/bg2.png') no-repeat center center;
+    background: url('image/bg2-small.png') no-repeat center center;
     background-size: cover;
 
     transform: scale(1.1);
@@ -122,10 +122,10 @@ p {
 .tuna {
   /* steps causes the animation to chunk into 12 equal pieces */
   animation: walk-cycle 1s steps(12) infinite;
-  background: url(http://stash.rachelnabors.com/img/codepen/tuna_sprite.png) 0 0 no-repeat; 
+  background: url(image/tuna_sprite.png) 0 0 no-repeat; 
   height: 200px;
   width: 400px;
-  margin: 100px auto 0;
+  margin: 40px auto 0;
 }
 
 @keyframes walk-cycle {  
